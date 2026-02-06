@@ -20,7 +20,7 @@
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
-    "@acsbe/accessflow-sdk": "file:../acsbe-accessflow-sdk-1.0.2 (1).tgz",
+    "@acsbe/accessflow-sdk": "file:./acsbe-accessflow-sdk-1.0.2.tgz",
     "@playwright/test": "^1.58.1",
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.0.8"
