@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "reactSnap": {
+    "source": "dist",
     "include": [
       "/",
       "/products",
