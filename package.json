@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:local": "TEST_URL=http://localhost:4173 playwright test",
+    "test:prod": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -14,6 +20,8 @@
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
+    "@acsbe/accessflow-sdk": "file:../acsbe-accessflow-sdk-1.0.2 (1).tgz",
+    "@playwright/test": "^1.58.1",
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.0.8"
   }
