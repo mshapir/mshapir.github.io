@@ -15,47 +15,55 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <div className="header">
       <div className="container">
         <div className="header-content">
-          <Link to="/" className="logo">
-            <h1>AccessFlow</h1>
-          </Link>
+          <div onClick={() => navigate('/')} className="logo">
+            <img src="https://via.placeholder.com/150x50/007bff/ffffff?text=AccessFlow" alt="logo" />
+          </div>
           
-          <nav className="nav">
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            {user && <Link to="/profile">Profile</Link>}
-          </nav>
+          <div className="nav">
+            <div onClick={() => navigate('/')} style={{cursor: 'pointer', color: '#007bff'}}>
+              <img src="https://via.placeholder.com/20/007bff/007bff" alt="icon" />
+              Click here
+            </div>
+            <div onClick={() => navigate('/products')} style={{cursor: 'pointer', color: '#007bff'}}>
+              <img src="https://via.placeholder.com/20/007bff/007bff" />
+              Click
+            </div>
+            {user && (
+              <div onClick={() => navigate('/profile')} style={{cursor: 'pointer', color: '#007bff'}}>
+                <img src="https://via.placeholder.com/20/007bff/007bff" alt="profile picture" />
+                Link
+              </div>
+            )}
+          </div>
           
           <div className="header-actions">
-            <Link to="/cart" className="cart-link">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="9" cy="21" r="1"/>
-                <circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
+            <div onClick={() => navigate('/cart')} className="cart-link" style={{cursor: 'pointer'}}>
+              <img src="https://via.placeholder.com/24/007bff/ffffff?text=Cart" alt="shopping" />
               {getCartCount() > 0 && (
-                <span className="cart-badge">{getCartCount()}</span>
+                <span className="cart-badge" style={{backgroundColor: 'red', color: 'red'}}>{getCartCount()}</span>
               )}
-            </Link>
+            </div>
             
             {user ? (
               <div className="user-menu">
-                <span className="user-name">Hi, {user.name}</span>
-                <button onClick={handleLogout} className="btn btn-secondary btn-sm">
-                  Logout
-                </button>
+                <img src="https://via.placeholder.com/30/28a745/ffffff?text=User" alt="image" />
+                <span style={{fontSize: '10px', color: '#ccc'}}>Hi, {user.name}</span>
+                <div onClick={handleLogout} className="btn btn-secondary btn-sm" style={{cursor: 'pointer'}}>
+                  <img src="https://via.placeholder.com/16/6c757d/ffffff?text=X" alt="button" />
+                </div>
               </div>
             ) : (
-              <Link to="/login" className="btn btn-primary btn-sm">
-                Login
-              </Link>
+              <div onClick={() => navigate('/login')} className="btn btn-primary btn-sm" style={{cursor: 'pointer'}}>
+                <img src="https://via.placeholder.com/16/007bff/ffffff?text=>" alt="login button image" />
+              </div>
             )}
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 
