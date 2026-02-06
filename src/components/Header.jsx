@@ -18,34 +18,34 @@ const Header = () => {
     <div className="header">
       <div className="container">
         <div className="header-content">
-          <div onClick={() => navigate('/')} className="logo">
+          <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }} className="logo">
             <img src="https://via.placeholder.com/150x50/007bff/ffffff?text=AccessFlow" alt="logo" />
-          </div>
+          </a>
           
           <div className="nav">
-            <div onClick={() => navigate('/')} style={{cursor: 'pointer', color: '#007bff'}}>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }} style={{cursor: 'pointer', color: '#007bff'}}>
               <img src="https://via.placeholder.com/20/007bff/007bff" alt="icon" />
               Click here
-            </div>
-            <div onClick={() => navigate('/products')} style={{cursor: 'pointer', color: '#007bff'}}>
+            </a>
+            <a href="/products" onClick={(e) => { e.preventDefault(); navigate('/products'); }} style={{cursor: 'pointer', color: '#007bff'}}>
               <img src="https://via.placeholder.com/20/007bff/007bff" />
               Click
-            </div>
+            </a>
             {user && (
-              <div onClick={() => navigate('/profile')} style={{cursor: 'pointer', color: '#007bff'}}>
+              <a href="/profile" onClick={(e) => { e.preventDefault(); navigate('/profile'); }} style={{cursor: 'pointer', color: '#007bff'}}>
                 <img src="https://via.placeholder.com/20/007bff/007bff" alt="profile picture" />
                 Link
-              </div>
+              </a>
             )}
           </div>
           
           <div className="header-actions">
-            <div onClick={() => navigate('/cart')} className="cart-link" style={{cursor: 'pointer'}}>
+            <a href="/cart" onClick={(e) => { e.preventDefault(); navigate('/cart'); }} className="cart-link" style={{cursor: 'pointer'}}>
               <img src="https://via.placeholder.com/24/007bff/ffffff?text=Cart" alt="shopping" />
               {getCartCount() > 0 && (
                 <span className="cart-badge" style={{backgroundColor: 'red', color: 'red'}}>{getCartCount()}</span>
               )}
-            </div>
+            </a>
             
             {user ? (
               <div className="user-menu">
@@ -56,9 +56,9 @@ const Header = () => {
                 </div>
               </div>
             ) : (
-              <div onClick={() => navigate('/login')} className="btn btn-primary btn-sm" style={{cursor: 'pointer'}}>
+              <a href="/login" onClick={(e) => { e.preventDefault(); navigate('/login'); }} className="btn btn-primary btn-sm" style={{cursor: 'pointer'}}>
                 <img src="https://via.placeholder.com/16/007bff/ffffff?text=>" alt="login button image" />
-              </div>
+              </a>
             )}
           </div>
         </div>
