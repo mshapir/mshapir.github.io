@@ -28,7 +28,7 @@ const Header = () => {
               Click here
             </a>
             <a href="/products" onClick={(e) => { e.preventDefault(); navigate('/products'); }} style={{cursor: 'pointer', color: '#007bff'}}>
-              <img src="https://via.placeholder.com/20/007bff/007bff" />
+              <img src="https://via.placeholder.com/20/007bff/007bff" alt="" role="presentation" />
               Click
             </a>
             {user && (
