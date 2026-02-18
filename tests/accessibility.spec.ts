@@ -76,4 +76,19 @@ test.describe('Accessibility Tests', () => {
     
     console.log('Cart page accessibility summary:', summary);
   });
+
+  test('About page - accessibility audit (intentionally inaccessible)', async ({ page }, testInfo) => {
+    const sdk = new AccessFlowSDK(page, testInfo);
+    
+    await page.goto('/about');
+    
+    // Wait for page to load
+    await page.waitForSelector('.about-hero');
+    
+    // Run accessibility audit - this page has intentional violations
+    const audits = await sdk.audit();
+    const summary = sdk.generateReport(audits, 'html');
+    
+    console.log('About page accessibility summary (expect many issues):', summary);
+  });
 });
