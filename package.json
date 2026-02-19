@@ -14,6 +14,19 @@
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report"
   },
+  "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "include": [
+      "/",
+      "/products",
+      "/login",
+      "/register",
+      "/cart",
+      "/about"
+    ],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,6 +36,7 @@
     "@acsbe/accessflow-sdk": "file:./acsbe-accessflow-sdk-1.0.2.tgz",
     "@playwright/test": "^1.58.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "react-snap": "^1.23.0",
     "vite": "^5.0.8"
   }
 }
