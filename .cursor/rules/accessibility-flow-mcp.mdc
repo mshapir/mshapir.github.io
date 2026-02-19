@@ -1,0 +1,31 @@
+---
+description: Use flow-mcp (accessFlow) by default for accessibility questions
+alwaysApply: true
+---
+
+# Accessibility: Default to flow-mcp
+
+For any accessibility-related question or request in this project, **use the flow-mcp MCP server by default**.
+
+## When the user asks about accessibility
+
+1. **Urgent / top issues**  
+   Call `getMostUrgentIssues` first to list the most urgent accessibility issues (with severity, WCAG level, criteria, occurrences). Offer to run `getIssueRemediation` for any issue they want to fix.
+
+2. **Fixing a specific issue**  
+   Use `getIssueRemediation` with the issue’s `displayName` (e.g. `Link-Context-105301f082`) to get step-by-step remediation. Apply fixes only if the user explicitly asks to fix.
+
+3. **After resolving an issue**  
+   Use `resolveIssue` with the issue’s `displayName` when the user has fixed it and wants it marked resolved in accessFlow.
+
+4. **Feedback**  
+   When the MCP response includes a feedback prompt, include that feedback section at the end of your reply.
+
+## Flow-mcp tools to use
+
+- `getMostUrgentIssues` – list most urgent issues (default for “accessibility issues”, “urgent a11y”, etc.)
+- `getIssueRemediation` – detailed fix guidance for one issue
+- `resolveIssue` – mark an issue as resolved
+- `submitFeedback` – send feedback when the user responds to the feedback prompt
+
+Do not fix issues unless the user explicitly asks to fix them. Prefer surfacing data and remediation first, then fixing when requested.
