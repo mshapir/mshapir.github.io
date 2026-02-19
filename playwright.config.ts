@@ -9,14 +9,17 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: process.env.CI ? 1 : 0,
+  workers: process.env.CI ? 2 : undefined,
   reporter: 'html',
-  
+  timeout: 120000,
+
   use: {
     // Switch between local and production
     baseURL: process.env.TEST_URL || 'https://mshapir.github.io',
     trace: 'on-first-retry',
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
   },
 
   projects: [
