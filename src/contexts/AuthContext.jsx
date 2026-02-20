@@ -10,12 +10,30 @@ export const useAuth = () => {
   return context;
 };
 
+const DEMO_USER = {
+  id: 1,
+  name: 'Demo User',
+  email: 'demo@accessflow.com',
+  password: 'Demo1234!',
+  createdAt: '2024-01-01T00:00:00.000Z',
+  orders: [],
+};
+
+const seedDemoUser = () => {
+  const users = JSON.parse(localStorage.getItem('users') || '[]');
+  if (!users.find(u => u.email === DEMO_USER.email)) {
+    users.push(DEMO_USER);
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+};
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Load user from localStorage on mount
+  // Seed demo user and load current session on mount
   useEffect(() => {
+    seedDemoUser();
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
